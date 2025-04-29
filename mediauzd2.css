@@ -132,8 +132,8 @@ p{
     }
 }
 
-#input{
-    width: 300px;
+form{
+    margin: 0 auto;
 }
 input{
     border: none;
@@ -142,8 +142,8 @@ input{
 }
 
 button{
-    background: lightblue;
-    color: grey;
+    background: rgb(49, 186, 231);
+    color: white;
     font-weight: 500;
     border: none;
     border-radius: 10px;
