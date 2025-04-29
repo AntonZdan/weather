@@ -44,13 +44,13 @@ form.addEventListener('submit', async (e) =>{
     document.querySelector('#text').textContent = `Today is: ${text}`;
 })
 
-// PABANDYMASgi
+// 7 dienu oru prognoze
 
 const getWeek = async (city) => {
     const response = await fetch(`${url}/forecast.json?key=${apiKey}&q=${city}&days=7`);
     const data = await response.json()
     return data
 }
-console.log(getWeek('London'));
+
 
 
