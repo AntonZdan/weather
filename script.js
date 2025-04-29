@@ -2,7 +2,7 @@ const form = document.querySelector('form');
 const city = document.querySelector('#city');
 const feelsLike = document.querySelector('#feelsLike');
 const temp = document.querySelector('#temp');
-const image = document.querySelector('#image');
+const images = document.querySelectorAll('.image');
 const hum = document.querySelector('#humidity');
 const wind = document.querySelector('#wind');
 const updated = document.querySelector('#updateTime');
@@ -33,11 +33,8 @@ form.addEventListener('submit', async (e) =>{
     const humidity = data.current.humidity;
     const windmpH = data.current.wind_mph;
 
-    console.log(text);
-
-    
     // IDEDU I HTML
-    image.src = icon;
+    images.forEach(img => img.src = icon);
     city.textContent = cityName;
     feelsLike.textContent = `Feels like: ${feelsLikeC}°C`;
     temp.textContent = currentTemp;
@@ -48,3 +45,12 @@ form.addEventListener('submit', async (e) =>{
 })
 
 // PABANDYMASgi
+
+const getWeek = async (city) => {
+    const response = await fetch(`${url}/forecast.json?key=${apiKey}&q=${city}&days=7`);
+    const data = await response.json()
+    return data
+}
+console.log(getWeek('London'));
+
+
