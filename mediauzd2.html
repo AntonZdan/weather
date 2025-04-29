@@ -13,12 +13,16 @@
 <body>
     <header>
         <div class="header">
+            <form>
+                <input type="text" placeholder="Enter your City">
+                <button type="submit">Check Weather</button>
+            </form>
             <h1 id="city">New York, NY</h1>
-            <p>Tuesday, April 15th</p>
+            <p id="text">Tuesday, April 15th</p>
             <p>Overcast</p>
             <div class="headerInfo">
                 <div class="headerImg">
-                    <img src="/images/cloudy.png" alt="cloud">
+                    <img id="image" src="/images/cloudy.png" alt="cloud">
                     <div class="frng">
                         <p id="temp">58</p>
                     </div>
@@ -26,9 +30,9 @@
                 </div>
                 <div class="info">
                     <p id="feelsLike">Precipitation: 100%</p>
-                    <p>Humidity: 97%</p>
-                    <p>Wind: 4 mph SW</p>
-                    <p>Pollen count: 36</p>
+                    <p id="humidity">Humidity: 97%</p>
+                    <p id="wind">Wind: 4 mph SW</p>
+                    <p id="updateTime">Pollen count: 36</p>
                 </div>
             </div>
         </div>
@@ -37,7 +41,7 @@
         <div class="mainPage">
         <div class="today">
             <div class="first">Today</div>
-            <div class="second"><img src="/images/thunderstorms.png" alt=""></div>
+            <div class="second"><img id="image" src="/images/thunderstorms.png" alt=""></div>
             <div class="third">
                 <div>68<span>&deg;</span></div>
                 <div>36<span>&deg;</span></div>

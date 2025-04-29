@@ -132,3 +132,21 @@ p{
     }
 }
 
+#input{
+    width: 300px;
+}
+input{
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+button{
+    background: lightblue;
+    color: grey;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+

@@ -1,9 +1,12 @@
-
-const input = document.querySelector('#text');
 const form = document.querySelector('form');
 const city = document.querySelector('#city');
 const feelsLike = document.querySelector('#feelsLike');
 const temp = document.querySelector('#temp');
+const image = document.querySelector('#image');
+const hum = document.querySelector('#humidity');
+const wind = document.querySelector('#wind');
+const updated = document.querySelector('#updateTime');
+const input = document.querySelector('input');
 
 const apiKey = 'b601a9f2877747f6ba7165927252804';
 const url = `http://api.weatherapi.com/v1`;
@@ -14,34 +17,34 @@ const get = async (city) => {
     const data = await response.json()
     return data
 }
-console.log(get('London'));
 
-const cityWeather = async () =>{
-    const data = await get('London');
-    const push = document.querySelector('.mainPage');
+form.addEventListener('submit', async (e) =>{
+    e.preventDefault();
+    const inputValue = input.value;
+    const data = await get(inputValue);
 
+    // PAIMU INFO IS API
     const cityName = data.location.name;
     const currentTemp = `${data.current.temp_c}°C`;
     const text = data.current.condition.text;
     const icon = data.current.condition.icon;
-    const feelsLikeC = `Feels like: ${data.current.feelslike_c}°C`;
+    const feelsLikeC = data.current.feelslike_c;
     const lastUpdate = data.current.last_updated;
+    const humidity = data.current.humidity;
+    const windmpH = data.current.wind_mph;
 
-    const img = document.createElement('img');
-    img.src = icon;
-    push.append(img);
-    const p = document.createElement('p');
-    p.textContent = `Current temp ${currentTemp}, Feels Like: ${feelsLikeC} It is: ${text}. Last update: ${lastUpdate}`;
-    push.append(p);
+    console.log(text);
 
+    
+    // IDEDU I HTML
+    image.src = icon;
     city.textContent = cityName;
-    feelsLike.textContent = feelsLikeC;
+    feelsLike.textContent = `Feels like: ${feelsLikeC}°C`;
     temp.textContent = currentTemp;
-
-    console.log(cityName, currentTemp, text, icon, feelsLikeC);
-    console.log(lastUpdate);
-}
-
-cityWeather()
+    hum.textContent = `Humidity: ${humidity}%`;
+    wind.textContent = `Wind: ${windmpH} mph`;
+    updated.textContent = `Last time updated: ${lastUpdate}`
+    document.querySelector('#text').textContent = `Today is: ${text}`;
+})
 
 // PABANDYMASgi
